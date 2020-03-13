@@ -4,6 +4,7 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 @Component({
     selector: 'app-components',
     templateUrl: './components.component.html',
+    styleUrls: ['./components.component.scss'],
     styles: [`
     ngb-progressbar {
         margin-top: 5rem;
@@ -17,6 +18,8 @@ export class ComponentsComponent implements OnInit {
     focus;
     focus1;
     focus2;
+    btnClass: String;
+    catrgories: String[] = ['Home', 'Snorkeling', 'Island', 'Travel Tips', 'Travel Planning', '10 Recomended island'];
     date: {year: number, month: number};
     model: NgbDateStruct;
     constructor( private renderer : Renderer) {}
