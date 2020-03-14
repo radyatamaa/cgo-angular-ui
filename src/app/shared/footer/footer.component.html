@@ -1,18 +1,72 @@
 <footer class="footer">
-    <div class="container">
+    <div id="blue" class="container">
         <div class="row">
-            <nav class="footer-nav">
+            <div class="credits">
+                <span class="copyright" style="color: white;">
+                    <b>Be the first to receive our updated news!</b>
+                </span>
+            </div>
+            <div class="col-md-5" >
+                <div class="form-group has-success" style="margin-top:20px">
+                    <input type="text" class="form-control form-control-success" id="inputSuccess1" value="Your Email Address">
+                </div>
+            </div>
+
+            <div class="col-md-3" >
+                <button type="button" class="btn btn-danger" style="text-align: center;padding-right: 100px; margin-top:20px; background: linear-gradient(270deg, #D42128 5.56%, #D67579 107.4%, rgba(134, 9, 14, 0) 107.41%);;">Subscribe</button>
+            </div>
+            
+            <!-- <nav class="footer-nav">
                 <ul>
                     <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
                     <li><a href="http://blog.creative-tim.com">Blog</a></li>
                     <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
                 </ul>
-            </nav>
-            <div class="credits ml-auto">
+            </nav> -->
+            <!-- <div class="credits ml-auto">
                 <span class="copyright">
                     © {{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim
                 </span>
+            </div> -->
+        </div>
+    </div>
+</footer>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 component1">
+                <h3>Company</h3>
+                <br>
+                <br>
+                <div>
+                    <div>About</div>
+                    <div>Merchant</div>
+                </div>
+            </div>
+            <div class="col-md-3 component1">
+                <h3>Costumer Care</h3>
+                <br>
+                <br>
+                <div>
+                    <div>FAQ</div>
+                    <div>Terms & Condition</div>
+                    <div>Privacy Podivcy</div>
+                    <div>Contact Us</div>
+                </div>
+            </div>
+            <div class="col-md-3 component1">
+                <h3>Connect With Us</h3>
+                <br>
+                <br>
+                <div>
+                    <div><a class="nav-divnk" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                </div>
             </div>
         </div>
+        <div class="credits ml-auto">
+                <span class="copyright">
+                    © {{test | date: 'yyyy'}}, cGO. All rights reserved.
+                </span>
+            </div>
     </div>
 </footer>
