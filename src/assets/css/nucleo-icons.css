@@ -5,9 +5,9 @@ License - nucleoapp.com/license/
 
 -------------------------------- */
 @font-face {
-  font-family: 'nucleo-icons';
-  src: url('../fonts/nucleo-icons.eot');
-  src: url('../fonts/nucleo-icons.eot') format('embedded-opentype'), url('../fonts/nucleo-icons.woff2') format('woff2'), url('../fonts/nucleo-icons.woff') format('woff'), url('../fonts/nucleo-icons.ttf') format('truetype');
+  font-family: 'NunitoSans-Black';
+  src: url('../fonts/NunitoSans-Black.ttf');
+  src: url('../fonts/NunitoSans-Black.ttf') format('embedded-opentype'), url('../fonts/NunitoSans-Black.ttf') format('ttf'), url('../fonts/nucleo-icons.woff') format('woff'), url('../fonts/nucleo-icons.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@ License - nucleoapp.com/license/
 -------------------------*/
 .nc-icon {
   display: inline-block;
-  font: normal normal normal 14px/1 'nucleo-icons';
+  font: normal normal normal 14px/1 'NunitoSans-Black';
   font-size: inherit;
   speak: none;
   text-transform: none;
