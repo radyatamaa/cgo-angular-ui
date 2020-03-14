@@ -1,100 +1,6 @@
 <div class="wrapper">
 
     <div class="main">
-        <!-- <app-basicelements></app-basicelements>
-        <app-navigation></app-navigation>
-        <app-typography></app-typography> -->
-        <!-- <div class="section javascript-components">
-            <div class="container">
-                <div class="tim-title">
-                    <h2>Angular Native Components</h2>
-                </div>
-                <div class="row" id="modals">
-                    <div class="col-md-6">
-                        <div class="tim-title">
-                            <h3>Modal</h3>
-                        </div>
-                        <app-modal-component></app-modal-component>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="tim-title">
-                            <h3>Popovers</h3>
-                        </div>
-
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="right"
-                            ngbPopover="Here will be some very useful information about this popover."
-                            popoverTitle="Popover on right">
-                            on right
-                        </button>
-
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="top"
-                            ngbPopover="Here will be some very useful information about this popover."
-                            popoverTitle="Popover on top">
-                            on top
-                        </button>
-
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="left"
-                            ngbPopover="Here will be some very useful information about this popover."
-                            popoverTitle="Popover on left">
-                            on left
-                        </button>
-
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="bottom"
-                            ngbPopover="Here will be some very useful information about this popover."
-                            popoverTitle="Popover on bottom">
-                            on bottom
-                        </button>
-
-                    </div>
-                    <br />
-                    <div class="col-md-6">
-                        <div class="tim-title">
-                            <h3>Datepicker</h3>
-                        </div>
-                        <div class="row">
-                            <div class='col-sm-6'>
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
-                                            <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
-                                                [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
-                                                (click)="d.toggle()" (focus)="focus=true" (blur)="focus=false" />
-                                            <div class="input-group-append">
-                                                <span class="glyphicon glyphicon-calendar input-group-text">
-                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="tim-title">
-                            <h3>Tooltips</h3>
-                        </div>
-
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="right"
-                            ngbTooltip="Tooltip on right">
-                            on right
-                        </button>
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="left"
-                            ngbTooltip="Tooltip on left">
-                            on left
-                        </button>
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="top"
-                            ngbTooltip="Tooltip on top">
-                            on top
-                        </button>
-                        <button type="button" class="btn btn-outline-danger btn-round" placement="bottom"
-                            ngbTooltip="Tooltip on bottom">
-                            on bottom
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="section" id="carousel">
             <div class="container">
                 <div class="tim-title">
@@ -162,12 +68,12 @@
                 <div class="row example-page">
                     <!-- List of Article -->
                     <div class="col-md-8">
-                        <div class="" routerLinkActive="active" [routerLink]="['/landing']">
+                        <div class="" routerLinkActive="active" [routerLink]="['/landing']" *ngFor="let article of result; let i = index">
                             <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
                                 <div class="col-md-9">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <p>Travel Tips</p>
+                                            <p>{{article.category_travel}}</p>
 
                                         </div>
                                         <div class="col-md-3">
@@ -180,159 +86,26 @@
                                         </div>
                                     </div>
                                     <div class="">
-                                        <p><b>How to travel the world and get companies to pay for it.</b></p>
+                                        <p><b>{{article.title}}</b></p>
                                     </div>
                                     <div class="">
-                                        <p>Sponsorships are like unicorns or leprechauns, talked about often 
-                                            but they don’t actually exist. There is only dollars and cents, th...</p>
+                                        <p>{{article.description}}</p>
                                     </div>
                                     <div class="row">
                                         <div class="row col-md-9">
                                             <div class="col-md-3"><p>10 Jan</p></div>
                                             <div class="col-md-1"><i class="fas fa-circle"></i></div>
-                                            <div class="col-md-4"><p>5 min read</p></div>
+                                            <div class="col-md-4"><p>{{article.time}} min read</p></div>
                                         </div>
                                         <div class="col-md-3">
-                                            <p><b>Admin CGO</b></p>
+                                            <p><b>{{article.created_by}}</b></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="row text-center" routerLinkActive="active">
                                         <a [routerLink]="['/landing']">
-                                            <img src="./assets/img/examples/landing-page.JPG" alt="Rounded Image"
-                                                class="img-rounded img-responsive" style="width: 100%;margin: 0 0;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-                                <div class="col-md-9">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <p>Travel Tips</p>
-
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button style="">
-                                                <i class="fas fa-bookmark"></i>
-                                            </button>
-                                            <button>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <p><b>How to travel the world and get companies to pay for it.</b></p>
-                                    </div>
-                                    <div class="">
-                                        <p>Sponsorships are like unicorns or leprechauns, talked about often 
-                                            but they don’t actually exist. There is only dollars and cents, th...</p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="row col-md-9">
-                                            <div class="col-md-3"><p>10 Jan</p></div>
-                                            <div class="col-md-1"><i class="fas fa-circle"></i></div>
-                                            <div class="col-md-4"><p>5 min read</p></div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p><b>Admin CGO</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="row text-center" routerLinkActive="active">
-                                        <a [routerLink]="['/landing']">
-                                            <img src="./assets/img/examples/landing-page.JPG" alt="Rounded Image"
-                                                class="img-rounded img-responsive" style="width: 100%;margin: 0 0;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-                                <div class="col-md-9">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <p>Travel Tips</p>
-
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button style="">
-                                                <i class="fas fa-bookmark"></i>
-                                            </button>
-                                            <button>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <p><b>How to travel the world and get companies to pay for it.</b></p>
-                                    </div>
-                                    <div class="">
-                                        <p>Sponsorships are like unicorns or leprechauns, talked about often 
-                                            but they don’t actually exist. There is only dollars and cents, th...</p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="row col-md-9">
-                                            <div class="col-md-3"><p>10 Jan</p></div>
-                                            <div class="col-md-1"><i class="fas fa-circle"></i></div>
-                                            <div class="col-md-4"><p>5 min read</p></div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p><b>Admin CGO</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="row text-center" routerLinkActive="active">
-                                        <a [routerLink]="['/landing']">
-                                            <img src="./assets/img/examples/landing-page.JPG" alt="Rounded Image"
-                                                class="img-rounded img-responsive" style="width: 100%;margin: 0 0;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-                                <div class="col-md-9">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <p>Travel Tips</p>
-
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button style="">
-                                                <i class="fas fa-bookmark"></i>
-                                            </button>
-                                            <button>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <p><b>How to travel the world and get companies to pay for it.</b></p>
-                                    </div>
-                                    <div class="">
-                                        <p>Sponsorships are like unicorns or leprechauns, talked about often 
-                                            but they don’t actually exist. There is only dollars and cents, th...</p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="row col-md-9">
-                                            <div class="col-md-3"><p>10 Jan</p></div>
-                                            <div class="col-md-1"><i class="fas fa-circle"></i></div>
-                                            <div class="col-md-4"><p>5 min read</p></div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p><b>Admin CGO</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="row text-center" routerLinkActive="active">
-                                        <a [routerLink]="['/landing']">
-                                            <img src="./assets/img/examples/landing-page.JPG" alt="Rounded Image"
+                                            <img src="{{article.url_file}}" alt="Rounded Image"
                                                 class="img-rounded img-responsive" style="width: 100%;margin: 0 0;">
                                         </a>
                                     </div>
@@ -351,15 +124,15 @@
                             <h3>Popular Article</h3>
                         </div>
 
-                        <div class="text-left" routerLinkActive="active" style="margin-top: 20px;margin-bottom: 20px;">
+                        <div class="text-left" routerLinkActive="active" style="margin-top: 20px;margin-bottom: 20px;" *ngFor="let popular of result; let i = index">
                             <div [routerLink]="['/user-profile']" class="row">
                                 <div class="col-md-1" style="margin-right: 10px;">
-                                    <h3>01</h3>
+                                    <h3>0{{i+1}}</h3>
                                 </div>
                                 <div class="col-md-10">
-                                    <div><i>Travel Tips</i></div>
+                                    <div><i>{{popular.title}}</i></div>
                                     <div>
-                                        <p><b>Five Places to Dine in Paris With the Author of ‘Let’s Eat France’</b></p>
+                                        <p><b>{{popular.description}}</b></p>
                                     </div>
                                     <div>
                                         <i>10 Jan</i>
@@ -369,103 +142,7 @@
                                         background-color: #bbb;
                                         border-radius: 50%;
                                         display: inline-block;"></i>
-                                        <i>5 min read</i>
-                                    </div>
-                                    <!-- <div><a [routerLink]="['/user-profile']">
-                                        <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image"
-                                            class="img-rounded img-responsive" style="width: 100%">
-                                        <a [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Profile
-                                            Page</a>
-                                    </a></div> -->
-
-
-                                </div>
-
-                            </div>
-
-                            <div [routerLink]="['/user-profile']" style="margin-top: 20px;margin-bottom: 20px;"
-                                class="row">
-                                <div class="col-md-1" style="margin-right: 10px;">
-                                    <h3>02</h3>
-                                </div>
-                                <div class="col-md-10">
-                                    <div><i>Island</i></div>
-                                    <div>
-                                        <p><b>Five Places to Dine in Paris With the Author of ‘Let’s Eat France’</b></p>
-                                    </div>
-                                    <div>
-                                        <i>10 Jan</i>
-                                        <i class="dot" style="
-                                        height: 2px;
-                                        width: 2px;
-                                        background-color: #bbb;
-                                        border-radius: 50%;
-                                        display: inline-block;"></i>
-                                        <i>5 min read</i>
-                                    </div>
-                                    <!-- <div><a [routerLink]="['/user-profile']">
-                                        <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image"
-                                            class="img-rounded img-responsive" style="width: 100%">
-                                        <a [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Profile
-                                            Page</a>
-                                    </a></div> -->
-
-
-                                </div>
-
-                            </div>
-
-                            <div [routerLink]="['/user-profile']" class="row"
-                                style="margin-top: 20px;margin-bottom: 20px;">
-                                <div class="col-md-1" style="margin-right: 10px;">
-                                    <h3>03</h3>
-                                </div>
-                                <div class="col-md-10">
-                                    <div><i>Family Travel</i></div>
-                                    <div>
-                                        <p><b>Five Places to Dine in Paris With the Author of ‘Let’s Eat France’</b></p>
-                                    </div>
-                                    <div>
-                                        <i>10 Jan</i>
-                                        <i class="dot" style="
-                                        height: 2px;
-                                        width: 2px;
-                                        background-color: #bbb;
-                                        border-radius: 50%;
-                                        display: inline-block;"></i>
-                                        <i>5 min read</i>
-                                    </div>
-                                    <!-- <div><a [routerLink]="['/user-profile']">
-                                        <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image"
-                                            class="img-rounded img-responsive" style="width: 100%">
-                                        <a [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Profile
-                                            Page</a>
-                                    </a></div> -->
-
-
-                                </div>
-
-                            </div>
-
-                            <div [routerLink]="['/user-profile']" class="row"
-                                style="margin-top: 20px;margin-bottom: 20px;">
-                                <div class="col-md-1" style="margin-right: 10px;">
-                                    <h3>04</h3>
-                                </div>
-                                <div class="col-md-10">
-                                    <div><i>Travel Tips</i></div>
-                                    <div>
-                                        <p><b>Five Places to Dine in Paris With the Author of ‘Let’s Eat France’</b></p>
-                                    </div>
-                                    <div>
-                                        <i>10 Jan</i>
-                                        <i class="dot" style="
-                                        height: 2px;
-                                        width: 2px;
-                                        background-color: #bbb;
-                                        border-radius: 50%;
-                                        display: inline-block;"></i>
-                                        <i>5 min read</i>
+                                        <i>{{popular.time}} min read</i>
                                     </div>
                                     <!-- <div><a [routerLink]="['/user-profile']">
                                         <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image"

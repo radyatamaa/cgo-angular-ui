@@ -1,5 +1,7 @@
 import { Component, OnInit, Renderer } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { BlogService } from 'app/services/blog-services/blog.service';
+import { Article } from 'app/model/blog.model';
 
 @Component({
     selector: 'app-components',
@@ -22,7 +24,9 @@ export class ComponentsComponent implements OnInit {
     catrgories: String[] = ['Home', 'Snorkeling', 'Island', 'Travel Tips', 'Travel Planning', '10 Recomended island'];
     date: {year: number, month: number};
     model: NgbDateStruct;
-    constructor( private renderer : Renderer) {}
+    result: Article;
+
+    constructor( private renderer : Renderer, private blogService: BlogService) {}
     isWeekend(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
         return d.getDay() === 0 || d.getDay() === 6;
@@ -33,6 +37,9 @@ export class ComponentsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.blogService.GetArticles().subscribe(response => {
+            this.result = response;
+        })
         let input_group_focus = document.getElementsByClassName('form-control');
         let input_group = document.getElementsByClassName('input-group');
         for (let i = 0; i < input_group.length; i++) {
