@@ -37,3 +37,27 @@ export class Category {
         this.category_name = '';
     }
 }
+
+export class User {
+    id: string;
+    user_login: string;
+    user_nicename: string;
+    user_email: string;
+    user_url: string;
+    user_status: string;    
+    display_name: string;
+    profile_url: string;
+    desc_user: string;
+
+    constructor() {
+        this.id = '';
+        this.user_login = '';
+        this.user_nicename = '';
+        this.user_email = '';
+        this.user_url = '';
+        this.user_status = '';
+        this.display_name = '';
+        this.profile_url = '';
+        this.desc_user = '';
+    }
+}

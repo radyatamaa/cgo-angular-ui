@@ -46,6 +46,15 @@ export class BlogService {
     )
   }
 
+  // GET USER
+  GetUser(username): Observable<any> {
+    return this.http.get<any>(this.baseurl + `users/username?username=${username}`)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    )
+  }
+
   // Error handling
   errorHandl(error) {
     let errorMessage = '';
