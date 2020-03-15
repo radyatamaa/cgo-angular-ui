@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .blog {
+    margin: 50px 150px;
+  }
+  
+  .avatar {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+  }
+  
+  .avatar-more {
+    align-self: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 20px 0 0;
+  }
+  
+  .article-type {
+    color: darkgrey;
+  }
+  
+  .blog-profile {
+    margin: 0px 30px;
+    height: 100%;
+  }
+  
+  .icon-back {
+    font-size: 20px;
+    margin-right: 20px;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+  
+  .blog-content {
+    margin: 0 200px 20px 44px;
+  }
+  
+  .blog-title {
+    margin: 0 0 10px 0;
+  }
+  
+  .blog-info {
+    color: darkgrey;
+  }
+  
+  .blog-account {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .icon-media {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .blog-image {
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+    margin: 30px 0;
+  }
+  
+  .blog-button {
+    color: #143ABE;
+    background-color: #E3EAFF;
+    border-radius: 20px;
+    padding: 3px 20px;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+  }
+  
+  .blog-suggest{
+    margin: 50px 0 30px 0;
+  }
+  
+  .blog-other{
+    display: flex;
+  }
+  
+  .blog-more {
+    margin: 30px 0 50px 0;
+  }
+  
+  .blog-more-item {
+    width: 100%;
+  }
+  
+  .blog-more-img {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 20px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 10px !important;
+    margin-bottom: 15px;
+  }
+  
+  .card img {
+    width:100px; 
+    height: 100px; 
+    margin: 0px 20px; 
+    align-self: center; 
+    border-radius: 10px;
+  }
+  
+  .card:hover {
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 30px;
+    margin: 30px;
+  }
