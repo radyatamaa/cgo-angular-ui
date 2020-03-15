@@ -2,7 +2,6 @@ import { Component, OnInit, Renderer } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { BlogService } from 'app/services/blog-services/blog.service';
 import { Article } from 'app/model/blog.model';
-
 @Component({
     selector: 'app-components',
     templateUrl: './components.component.html',
@@ -25,6 +24,7 @@ export class ComponentsComponent implements OnInit {
     date: {year: number, month: number};
     model: NgbDateStruct;
     result: Article;
+   
 
     constructor( private renderer : Renderer, private blogService: BlogService) {}
     isWeekend(date: NgbDateStruct) {
