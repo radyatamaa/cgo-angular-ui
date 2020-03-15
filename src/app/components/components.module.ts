@@ -14,6 +14,7 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import { NgbdModalContent } from './modal/modal.component';
         NgbModule,
         NouisliderModule,
         RouterModule,
+        SlideshowModule,
         JwBootstrapSwitchNg2Module
     ],
     declarations: [
