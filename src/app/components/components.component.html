@@ -40,7 +40,7 @@
                         <div class="card page-carousel">
                             <ngb-carousel>
                                 <ng-template ngbSlide>
-                                    <img src="./assets/img/soroush-karimi.jpg" alt="Random first slide">
+                                    <img src="./assets/img/bg-header.png" alt="Random first slide">
                                     <div class="carousel-caption">
                                         <p>Somewhere</p>
                                     </div>
@@ -52,7 +52,7 @@
                                     </div>
                                 </ng-template>
                                 <ng-template ngbSlide>
-                                    <img src="./assets/img/joshua-stannard.jpg" alt="Random third slide">
+                                    <img src="./assets/img/bg-header.png" alt="Random third slide">
                                     <div class="carousel-caption">
                                         <p>Here it is</p>
                                     </div>
@@ -91,7 +91,7 @@
                                         color: black;"><b>{{article.title}}</b></p>
                                     </div>
                                     <div class="">
-                                        <p>{{article.description}}</p>
+                                        <p>{{article.description.substring(0,110)+"..."}}</p>
                                     </div>
                                     <div class="row" style="position: absolute;
                                     width: 100%;
