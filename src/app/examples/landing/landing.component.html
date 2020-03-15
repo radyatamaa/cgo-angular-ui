@@ -1,10 +1,10 @@
 <div class="blog">
     <div class="row">
       <div class="col-lg-2">
-        <div class="blog-profile">
-          <img src="assets/img/avatar.png" class="avatar">
-          <p><strong>John Titor</strong></p>
-          <small class="article-type">Articles about sex, love, and relationship</small>
+        <div class="blog-profile" >
+          <img src="{{user.profile_url}}" class="avatar">
+          <p><strong>{{user.user_login}}</strong></p>
+          <small class="article-type">{{user.desc_user}}</small>
         </div>
       </div>
       <div class="col-lg-10">
@@ -14,15 +14,15 @@
         </div>
         <div class="blog-content">
           <div class="blog-title">
-            <h4><strong>How to travel the world and get companies to pay for it.</strong></h4>
+            <h4><strong>{{article.title}}</strong></h4>
           </div>
           <div class="blog-info">
-            <small>10 Jan • 5 min read</small>
+            <small>10 Jan • {{article.time}} min read</small>
           </div>
           <div class="blog-account">
-            <div class="d-flex flex-row">
-              <img src="assets/img/avatar.png" class="avatar-more">
-              <p><strong>John Titor</strong></p>
+            <div class="d-flex flex-row" >
+              <img src="{{user.profile_url}}" class="avatar-more">
+              <p><strong>{{user.user_login}}</strong></p>
             </div>
             <div>
               <i class="fab fa-twitter icon-media"></i>
@@ -30,13 +30,9 @@
               <i class="fas fa-share-alt icon-media"></i>
             </div>
           </div>
-          <img src="assets/img/beach.jpg" alt="blog image" class="blog-image">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-          <p style="background-color: #E4EBFF">It starts to feel like he's got you on a roller coaster. Some days, he's hitting on you and other days he acts annoyed that you texted him.</p>
-          <p>You worry that this might not be the start of the romance you hoped it would be.</p>
-          <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p>
+          <img src="{{article.url_file}}" alt="blog image" class="blog-image">
+          <p>{{article.description}}</p>
+          <!-- <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p> -->
           <div class="d-flex">
             <button class="blog-button">Island</button>
             <button class="blog-button">Travel Tips</button>
@@ -68,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div class="row d-flex flex-column">
+    <!-- <div class="row d-flex flex-column">
       <p><strong>More Article</strong></p>
       <div class="blog-more row">
         <div class="blog-more-item col-lg-4">
@@ -105,6 +101,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   

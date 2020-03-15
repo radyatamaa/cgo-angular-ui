@@ -1,3 +1,44 @@
 #blue{
-    background-color: #233E98;
+    // background-color: #233E98;
+    background: linear-gradient(278.71deg, #EAEFFF 1.06%, rgba(234, 239, 255, 0.29) 125.1%);
+}
+#click-to-action-footer{
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #233E98;
+}
+.footer-email-address{
+    /* Rectangle 669 */
+    background: #FFFFFF;
+    border: 1px solid #C3D1FF;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 12px rgba(60, 125, 240, 0.25);
+    border-radius: 3px;
+}
+.btn-subscribe{
+    background: linear-gradient(277.21deg, #233E98 1.04%, #377BE8 107.18%);
+    border-radius: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+}
+.footer-details
+{
+    margin-top: 15px;   
+    font-family: 'Nunito Sans', sans-serif;
+    color: #35405A;
+}
+#dark-blue{
+    background: #233E98;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
