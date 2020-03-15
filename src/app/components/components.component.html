@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-8 mr-auto ml-auto">
+                    <div class="col-md-12 mr-auto ml-auto">
                         <div class="card page-carousel">
                             <ngb-carousel>
                                 <ng-template ngbSlide>
@@ -60,6 +60,7 @@
                             </ngb-carousel>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -69,9 +70,9 @@
                     <!-- List of Article -->
                     <div class="col-md-8">
                         <div class="" routerLinkActive="active" [routerLink]="['/landing']" *ngFor="let article of result; let i = index">
-                            <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-                                <div class="col-md-9">
-                                    <div class="row">
+                            <div class="row" style="margin-top: 20px; margin-bottom: 40px;">
+                                <div class="col-md-8">
+                                    <div class="row mb-2">
                                         <div class="col-md-9">
                                             <p>{{article.category_travel}}</p>
 
@@ -86,19 +87,22 @@
                                         </div>
                                     </div>
                                     <div class="">
-                                        <p><b>{{article.title}}</b></p>
+                                        <p style="font-size: 20px;
+                                        color: black;"><b>{{article.title}}</b></p>
                                     </div>
                                     <div class="">
                                         <p>{{article.description}}</p>
                                     </div>
-                                    <div class="row">
-                                        <div class="row col-md-9">
+                                    <div class="row" style="position: absolute;
+                                    width: 100%;
+                                    bottom: 0;">
+                                        <div class="row col-md-9" style="color: #9F9F9F;">
                                             <div class="col-md-3"><p>10 Jan</p></div>
-                                            <div class="col-md-1"><i class="fas fa-circle"></i></div>
-                                            <div class="col-md-4"><p>{{article.time}} min read</p></div>
+                                            <div class="col-md-1">•</div>
+                                            <div class="col-md-5"><p>{{article.time}} min read</p></div>
                                         </div>
                                         <div class="col-md-3">
-                                            <p><b>{{article.created_by}}</b></p>
+                                            <p style="color: #143ABE; text-align:right"><b>{{article.created_by}}</b></p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +110,7 @@
                                     <div class="row text-center" routerLinkActive="active">
                                         <a [routerLink]="['/landing']">
                                             <img src="{{article.url_file}}" alt="Rounded Image"
-                                                class="img-rounded img-responsive" style="width: 100%;margin: 0 0;">
+                                                class="img-rounded img-responsive" style="width: 150px;margin: 0 0; height: 150px; object-fit: cover;">
                                         </a>
                                     </div>
                                 </div>
@@ -116,32 +120,27 @@
                     </div>
 
                     <!-- Separator -->
-                    <div class="col-md-1"></div>
+                    <!-- <div class="col-md-1"></div> -->
 
                     <!-- Popular Article -->
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="text-left" style="margin-bottom: 20px;">
-                            <h3>Popular Article</h3>
+                            <h3 style="color: black; font-weight: 600;">Popular Article</h3>
                         </div>
 
-                        <div class="text-left" routerLinkActive="active" style="margin-top: 20px;margin-bottom: 20px;" *ngFor="let popular of result; let i = index">
+                        <div class="text-left" routerLinkActive="active" style="  margin-top: 35px; margin-bottom: 45px;" *ngFor="let popular of result; let i = index">
                             <div [routerLink]="['/user-profile']" class="row">
                                 <div class="col-md-1" style="margin-right: 10px;">
-                                    <h3>0{{i+1}}</h3>
+                                    <h3 style="    margin-top: 0;">0{{i+1}}</h3>
                                 </div>
                                 <div class="col-md-10">
-                                    <div><i>{{popular.title}}</i></div>
-                                    <div>
-                                        <p><b>{{popular.description}}</b></p>
+                                    <div><i>{{popular.category_travel}}</i></div>
+                                    <div class="mt-2">
+                                        <p style="font-size: 18px;
+                                        color: black;"><b>{{popular.title}}</b></p>
                                     </div>
                                     <div>
-                                        <i>10 Jan</i>
-                                        <i class="dot" style="
-                                        height: 2px;
-                                        width: 2px;
-                                        background-color: #bbb;
-                                        border-radius: 50%;
-                                        display: inline-block;"></i>
+                                        <i>10 Jan • </i>
                                         <i>{{popular.time}} min read</i>
                                     </div>
                                     <!-- <div><a [routerLink]="['/user-profile']">
