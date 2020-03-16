@@ -71,4 +71,16 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+
+    redirectSailing() {
+        window.location.href = 'https://cgo.co.id/sailing/index';
+    }
+
+    redirectTour() {
+        window.location.href = 'https://cgo.co.id/Tour/tour';
+    }
+
+    redirectTransportation() {
+        window.location.href = 'https://cgo.co.id/Transportation/transportation';
+    }
 }
