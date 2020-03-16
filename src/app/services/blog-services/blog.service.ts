@@ -20,14 +20,32 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
   // GET
-  GetArticles(): Observable<Array<Article>> {
-    return this.http.get<Array<Article>>(this.baseurl + 'article/')
-    .pipe(
-      retry(1),
-      catchError(this.errorHandl)
-    )
+  GetArticles(search?,page?,size?): Observable<Array<Article>> {
+
+    if(search != null){
+      var result = this.http.get<Array<Article>>(this.baseurl + `article?search=${search}`)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      )
+    }else if(page != null && size != null){
+      var result = this.http.get<Array<Article>>(this.baseurl + `article?page=${page}&size=${size}`)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      )
+    }
+    else{
+      var result = this.http.get<Array<Article>>(this.baseurl + 'article/')
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      )
+    }
+    return result;
   }
 
+  
    // GET BY ID
   GetArticle(id): Observable<Article> {
     return this.http.get<any>(this.baseurl + `article/id?id=${id}`)
@@ -37,7 +55,7 @@ export class BlogService {
     )
   }
 
-    // GET BY ID
+    // GET BY CATEGORYID
     GetArticleByCategorys(category_id): Observable<Array<Article>> {
       return this.http.get<any>(this.baseurl + `article/category_id?category_ids=${category_id}`)
       .pipe(
@@ -54,7 +72,7 @@ export class BlogService {
       catchError(this.errorHandl)
     )
   }
-
+  
   // GET USER BY USERNAME
   GetUser(username): Observable<any> {
     return this.http.get<any>(this.baseurl + `users/username?username=${username}`)

@@ -21,7 +21,9 @@ export class HomeBlogComponent implements OnInit {
     description: 'A complete tutorial about creating router and navigation in the Angular 8 Web Application'
   };
   id: string;
+  search: string;
   result: Array<Article>;
+  populars: Array<Article>;
   catrgories: Category[] = [{
     id:0,
     category_name:'Home'
@@ -44,7 +46,7 @@ export class HomeBlogComponent implements OnInit {
     });
     if(this.id == null)
     this.id = this.activatedRoute.snapshot.paramMap.get('category');
-
+    this.search = this.activatedRoute.snapshot.paramMap.get('search');
     if(this.id != null && this.id != '0'){
       this.catrgories =  [{
         id:0,
@@ -53,6 +55,20 @@ export class HomeBlogComponent implements OnInit {
       
       var ids = "[" + this.id + "]";
       this.blogService.GetArticleByCategorys(ids).subscribe(response => {
+        this.result = response;
+        this.result.forEach(element => {
+          var date = new Date(element.created_date);
+          element.created_date = date;
+          this.getCategoryByIds(element);
+        });
+  
+      })
+    }else if(this.search != null){
+      this.catrgories =  [{
+        id:0,
+        category_name:'Home'
+      }];
+      this.blogService.GetArticles(this.search).subscribe(response => {
         this.result = response;
         this.result.forEach(element => {
           var date = new Date(element.created_date);
@@ -77,6 +93,7 @@ export class HomeBlogComponent implements OnInit {
       })
     }
     
+    this.getArticlePopular();
     this.getCategoryMasterData();
 
     let input_group_focus = document.getElementsByClassName('form-control');
@@ -107,7 +124,17 @@ export class HomeBlogComponent implements OnInit {
       element.category_travel = response[0];
     })
   }
+  getArticlePopular(){
+    this.blogService.GetArticles(null,0,3).subscribe(response => {
+      this.populars = response;
+      this.populars.forEach(element => {
+        var date = new Date(element.created_date);
+        element.created_date = date;
+        this.getCategoryByIds(element);
+      });
 
+    })
+  }
   getCategoryMasterData() {
     this.blogService.GetCategory(0, 4).subscribe(response => {
       response.forEach(element => {
