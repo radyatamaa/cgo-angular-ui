@@ -48,12 +48,12 @@
         <div class="blog-desc" innerHTML="{{article.description}}"></div>
         <!-- <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p> -->
         <div class="d-flex mt-4" >
-          <button class="blog-button ml-0" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
+          <button class="blog-button ml-0" (click)="gotoArticleByCategory(category_travels.id)" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
         </div>
         <div class="blog-suggest">
           <p style="margin-bottom: 2.5rem;"><strong style="font-family: NunitoSans-Bold;
             font-size: 20px; color: black;">We have several articles that are suitable for you</strong></p>
-          <div class="blog-other d-flex flex-column" *ngFor="let reference_article of articles; let i = index">
+          <div class="blog-other d-flex flex-column" routerLinkActive="active"  *ngFor="let reference_article of articles; let i = index">
             <div class="card d-flex flex-row justify-content-between" (click)="gotoDetails(reference_article.id)" *ngIf="i < 2">
               <div class="container d-flex flex-column p-4">
                 <p><strong style="font-family: Rubik-Medium;

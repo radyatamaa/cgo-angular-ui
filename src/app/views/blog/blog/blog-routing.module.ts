@@ -5,6 +5,7 @@ import { DetailBlogComponent } from './detail-blog/detail-blog.component';
 
 const routes: Routes = [
     { path: 'blog', component: HomeBlogComponent, data: { animation: 'blog' } },
+    { path: 'blog/:category', component: HomeBlogComponent, data: { animation: 'blog' } },
     { path: 'blog-detail/:id', component: DetailBlogComponent, data: { animation: 'blog-detail' } }
 ]
 

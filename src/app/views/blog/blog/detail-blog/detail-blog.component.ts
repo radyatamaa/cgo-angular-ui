@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'app/services/blog-services/blog.service';
 import { Article, User } from 'app/model/blog.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-blog',
@@ -15,15 +16,15 @@ export class DetailBlogComponent implements OnInit {
   focus1: any;
   user: User;
   article: Article;
-  articles: Article;
+  articles: Array<Article>;
   username: string;
   catrgories: String[] = ['Home', 'Snorkeling', 'Island', 'Travel Tips', 'Travel Planning', '10 Recomended island'];
-  constructor(private blogService: BlogService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private router: Router,private blogService: BlogService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     debugger
+    if(this.id == null)
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.id = this.recomendedArticleId === null ? this.activatedRoute.snapshot.paramMap.get('id') : this.recomendedArticleId;
     this.blogService.GetArticle(this.id).subscribe(response => {
       this.article = response;
       const date = new Date(this.article.created_date);
@@ -34,7 +35,17 @@ export class DetailBlogComponent implements OnInit {
       this.getCategoryByIds(this.article);
     })
   }
+  gotoDetails(articleId: any) {
+    debugger
+    this.router.navigate(['/blog-detail/', articleId]);
+    this.id = articleId;
+    this.ngOnInit();
+  }
 
+  gotoArticleByCategory(category){
+    debugger
+    this.router.navigate(['/blog/', category]);
+  }
   getCategoryByIds(element) {
     this.blogService.GetCategoryByIds(element.category_travel).subscribe(response => {
       element.category_travel = response;

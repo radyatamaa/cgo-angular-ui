@@ -6,18 +6,17 @@
                 <div class="tim-title">
 
                 </div>
-
                 <div class="row justify-content-md-left sharing-area text-left"
                     style="margin-bottom: 40px;">
                     <div class="text-left col-md-12 col-lg-12">
-                        <button type="button" name="category" *ngFor="let category of catrgories"
+                        <button type="button" (click)="gotoArticleByCategory(category.id)" name="category" *ngFor="let category of catrgories"
                             class="btn btn-danger btn-link" style="margin-right: 0.8rem;
                             color: #1919bb;
                             background-color: #eaeaff;
                             border-radius: 2rem;
                             text-transform: capitalize;
                             font-size: 14px;
-                            font-family: NunitoSans-Bold;">{{category}}</button>
+                            font-family: NunitoSans-Bold;">{{category.category_name}}</button>
                         <!-- <a href="#pablo" *ngFor="let category of catrgories"  class="btn btn-twitter-bg twitter-sharrre btn-round" rel="tooltip"
                             title="Tweet!">
                             <i class="fa fa-twitter"></i> {{category}}
