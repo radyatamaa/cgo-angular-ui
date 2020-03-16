@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'app/services/blog-services/blog.service';
 import { Article, User } from 'app/model/blog.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-blog',
@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detail-blog.component.scss']
 })
 export class DetailBlogComponent implements OnInit {
-  id: string;
+  id: string = null;
+  recomendedArticleId: string = null;
   ocus: any;
   focus1: any;
   user: User;
@@ -17,12 +18,13 @@ export class DetailBlogComponent implements OnInit {
   articles: Article;
   username: string;
   catrgories: String[] = ['Home', 'Snorkeling', 'Island', 'Travel Tips', 'Travel Planning', '10 Recomended island'];
-  constructor(private blogService: BlogService, private activatedRoute: ActivatedRoute) { }
+  constructor(private blogService: BlogService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     debugger
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.blogService.GetArticle(1).subscribe(response => {
+    this.id = this.recomendedArticleId === null ? this.activatedRoute.snapshot.paramMap.get('id') : this.recomendedArticleId;
+    this.blogService.GetArticle(this.id).subscribe(response => {
       this.article = response;
       const date = new Date(this.article.created_date);
       this.article.created_date = date;
@@ -49,6 +51,13 @@ export class DetailBlogComponent implements OnInit {
       this.articles = response;
       console.log(this.articles);
     })
+  }
+
+  gotoDetails(articleId: any) {
+    debugger
+    this.recomendedArticleId = articleId
+    this.router.navigate(['/blog-detail/', articleId]);
+    this.ngOnInit()
   }
 
 }
