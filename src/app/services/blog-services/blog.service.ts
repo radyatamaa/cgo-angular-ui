@@ -38,7 +38,7 @@ export class BlogService {
   }
 
     // GET BY ID
-    GetArticleByCategorys(category_id): Observable<Article> {
+    GetArticleByCategorys(category_id): Observable<Array<Article>> {
       return this.http.get<any>(this.baseurl + `article/category_id?category_ids=${category_id}`)
       .pipe(
         retry(1),

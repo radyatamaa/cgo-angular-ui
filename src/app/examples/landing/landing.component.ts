@@ -13,7 +13,7 @@ export class LandingComponent implements OnInit {
   focus1: any;
   user: User;
   article: Article;
-  articles: Article;
+  articles: Array<Article>;
   username: string;
   catrgories: String[] = ['Home', 'Snorkeling', 'Island', 'Travel Tips', 'Travel Planning', '10 Recomended island'];
   constructor(private blogService: BlogService) { }

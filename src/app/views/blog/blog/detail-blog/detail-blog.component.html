@@ -38,8 +38,8 @@
         </div>
         <div class="blog-suggest">
           <p><strong>We have several articles that are suitable for you</strong></p>
-          <div class="blog-other d-flex flex-column" *ngFor="let reference_article of articles; let i = index">
-            <div class="card d-flex flex-row justify-content-between" *ngIf="i < 2">
+          <div class="blog-other d-flex flex-column" routerLinkActive="active"  *ngFor="let reference_article of articles; let i = index">
+            <div class="card d-flex flex-row justify-content-between" (click)="gotoDetails(reference_article.id)" *ngIf="i < 2">
               <div class="container d-flex flex-column">
                 <p><strong>{{reference_article.title}}</strong></p>
                 <small style="color: darkgrey">{{reference_article.description.substring(0,110)+"..."}}</small>

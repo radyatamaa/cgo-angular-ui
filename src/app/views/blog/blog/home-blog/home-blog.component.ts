@@ -2,7 +2,8 @@ import { Router } from '@angular/router';
 import { Component, OnInit, Renderer } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { BlogService } from 'app/services/blog-services/blog.service';
-import { Article } from 'app/model/blog.model';
+import { Article, Category } from 'app/model/blog.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-blog',
@@ -17,21 +18,52 @@ export class HomeBlogComponent implements OnInit {
     author: 'Didin J.',
     description: 'A complete tutorial about creating router and navigation in the Angular 8 Web Application'
   };
+  id: string;
   result: Array<Article>;
-  catrgories: String[] = ['Home'];
+  catrgories: Category[] = [{
+    id:0,
+    category_name:'Home'
+  }];
 
-  constructor(private router: Router, private blogService: BlogService) { }
+  constructor(private router: Router, private blogService: BlogService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.blogService.GetArticles().subscribe(response => {
-      this.result = response;
-      this.result.forEach(element => {
-        var date = new Date(element.created_date);
-        element.created_date = date;
-        this.getCategoryByIds(element);
-      });
+    debugger
+    if(this.id == null)
+    this.id = this.activatedRoute.snapshot.paramMap.get('category');
 
-    })
+    if(this.id != null && this.id != '0'){
+      this.catrgories =  [{
+        id:0,
+        category_name:'Home'
+      }];
+      
+      var ids = "[" + this.id + "]";
+      this.blogService.GetArticleByCategorys(ids).subscribe(response => {
+        this.result = response;
+        this.result.forEach(element => {
+          var date = new Date(element.created_date);
+          element.created_date = date;
+          this.getCategoryByIds(element);
+        });
+  
+      })
+    }else{
+      this.catrgories =  [{
+        id:0,
+        category_name:'Home'
+      }];
+      this.blogService.GetArticles().subscribe(response => {
+        this.result = response;
+        this.result.forEach(element => {
+          var date = new Date(element.created_date);
+          element.created_date = date;
+          this.getCategoryByIds(element);
+        });
+  
+      })
+    }
+    
 
     this.getCategoryMasterData();
 
@@ -52,6 +84,12 @@ export class HomeBlogComponent implements OnInit {
     this.router.navigate(['/blog-detail/', articleId]);
   }
 
+  gotoArticleByCategory(category){
+    debugger
+    this.router.navigate(['/blog/', category]);
+    this.id = category;
+    this.ngOnInit();
+  }
   getCategoryByIds(element) {
     this.blogService.GetCategoryByIds(element.category_travel).subscribe(response => {
       element.category_travel = response[0];
@@ -61,9 +99,11 @@ export class HomeBlogComponent implements OnInit {
   getCategoryMasterData() {
     this.blogService.GetCategory(0, 4).subscribe(response => {
       response.forEach(element => {
-        this.catrgories.push(element.category_name);
+        var category = new Category();
+        category.id = element.id;
+        category.category_name = element.category_name;       
+        this.catrgories.push(category);
       });
-      // this.catrgories.push("")
     })
   }
 
