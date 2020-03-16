@@ -135,7 +135,7 @@
 }
 
 .sharing-area .btn {
-    padding: 0.5rem 10px !important;
+    padding: 0.2rem 25px !important;
 }
 
 .be-social {
@@ -431,7 +431,7 @@
 }
 
 .presentation .colors {
-    padding: 70px 0;
+    padding: 35px 0;
     z-index: 7;
     position: relative;
     margin-top: -300px;

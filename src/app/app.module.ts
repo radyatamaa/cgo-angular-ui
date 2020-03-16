@@ -13,6 +13,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { BlogService } from './services/blog-services/blog.service';
+import { BlogModule } from './views/blog/blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BlogService } from './services/blog-services/blog.service';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    BlogModule,
 
     HttpClientModule
   ],
