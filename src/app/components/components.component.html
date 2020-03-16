@@ -11,9 +11,13 @@
                     style="margin-bottom: 40px;">
                     <div class="text-left col-md-12 col-lg-12">
                         <button type="button" name="category" *ngFor="let category of catrgories"
-                            class="btn btn-danger btn-link" style="margin-right: 0.8rem; color: #1919bb;
-                            background-color: #cfcfff;
-                            border-radius: 2rem;">{{category}}</button>
+                            class="btn btn-danger btn-link" style="margin-right: 0.8rem;
+                            color: #1919bb;
+                            background-color: #eaeaff;
+                            border-radius: 2rem;
+                            text-transform: capitalize;
+                            font-size: 14px;
+                            font-family: NunitoSans-Bold;">{{category}}</button>
                         <!-- <a href="#pablo" *ngFor="let category of catrgories"  class="btn btn-twitter-bg twitter-sharrre btn-round" rel="tooltip"
                             title="Tweet!">
                             <i class="fa fa-twitter"></i> {{category}}
@@ -74,36 +78,52 @@
                         <div class="" routerLinkActive="active" [routerLink]="['/landing']" *ngFor="let article of result; let i = index">
                             <div class="row" style="margin-top: 20px; margin-bottom: 40px;">
                                 <div class="col-md-8">
-                                    <div class="row mb-2" >
+                                    <div class="row mb-1" >
                                         <div class="col-md-9">
-                                            <p>{{article.category_travel.category_name}}</p>
+                                            <p class="mb-0" style="font-family: NunitoSans-Bold;">{{article.category_travel.category_name}}</p>
                                         </div>
                                         <div class="col-md-3">
-                                            <button style="">
-                                                <i class="fas fa-bookmark"></i>
+                                            <button style="
+                                                margin-left: 30px;
+                                                border: none;
+                                                cursor: pointer;
+                                                background: #c7c6c6;
+                                                border-radius: 2rem;">
+                                                <i class="fa fa-bookmark"></i>
                                             </button>
-                                            <button>
-                                                <i class="fas fa-ellipsis-h"></i>
+                                            <button style="float: right;
+                                            border: none;
+                                            cursor: pointer;
+                                            background: transparent;">
+                                                <i class="fa fa-ellipsis-h"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="">
-                                        <p style="font-size: 20px;
-                                        color: black;"><b>{{article.title}}</b></p>
+                                        <p style="font-family: Rubik-Medium;
+                                        font-size: 21px;
+                                        color: #202020;"><b>{{article.title}}</b></p>
                                     </div>
                                     <div class="">
-                                        <p>{{article.description.substring(0,110)+"..."}}</p>
+                                        <p style="color: #35405A;
+                                        font-family: NunitoSans-Regular;
+                                        font-size: 16px;">{{article.description.substring(0,120)+"..."}}</p>
                                     </div>
                                     <div class="row" style="position: absolute;
                                     width: 100%;
                                     bottom: 0;">
                                         <div class="row col-md-9" style="color: #9F9F9F;">
-                                            <div class="col-md-3"><p>{{article.created_date | date:'dd MMM' }}</p></div>
-                                            <div class="col-md-1">•</div>
-                                            <div class="col-md-5"><p>{{article.time}} min read</p></div>
+                                            <div class="col-md-9 d-flex">
+                                                <p style="font-family: NunitoSans-Regular; margin-right: 0.4rem;">{{article.created_date | date:'dd MMM' }}</p>
+                                                <p style="font-family: NunitoSans-Regular;"> • {{article.time}} min read</p>
+                                            </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <p style="color: #143ABE; text-align:right"><b>{{article.created_by}}</b></p>
+                                            <p style="color: #143ABE;
+                                            text-align: right;
+                                            font-size: 16px;
+                                            text-transform: capitalize;
+                                            font-family: NunitoSans-SemiBold;"><b>{{article.created_by}}</b></p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,23 +146,35 @@
                     <!-- Popular Article -->
                     <div class="col-md-4">
                         <div class="text-left" style="margin-bottom: 20px;">
-                            <h3 style="color: black; font-weight: 600;">Popular Article</h3>
+                            <h3 style="color: #202020;
+                            font-family: Rubik-Medium;
+                            font-size: 28px;">Popular Article</h3>
                         </div>
 
                         <div class="text-left" routerLinkActive="active" style="  margin-top: 35px; margin-bottom: 45px;" *ngFor="let popular of result; let i = index">
                             <div [routerLink]="['/user-profile']" class="row">
-                                <div class="col-md-1" style="margin-right: 10px;">
-                                    <h3 style="    margin-top: 0;">0{{i+1}}</h3>
+                                <div class="col-md-1" style="margin-right: 24px;">
+                                    <h3 style="margin-top: -7px; font-family: Rubik-Regular;
+                                    color: #C2C2C2;
+                                    font-size: 32px;">0{{i+1}}</h3>
                                 </div>
                                 <div class="col-md-10" >
-                                    <div><i>{{popular.category_travel.category_name}}</i></div>
-                                    <div class="mt-2">
-                                        <p style="font-size: 18px;
-                                        color: black;"><b>{{popular.title}}</b></p>
+                                    <div><i style="font-family: NunitoSans-Bold;
+                                        color: #707070;
+                                        font-size: 15px;
+                                        font-style: normal;">{{popular.category_travel.category_name}}</i></div>
+                                    <div class="mt-2 mb-2">
+                                        <p style="font-size: 21px;
+                                        color: black;
+                                        font-family: Rubik-Medium;"><b>{{popular.title}}</b></p>
                                     </div>
                                     <div>
-                                        <i>{{popular.created_date |  date:'dd MMM'}} • </i>
-                                        <i>{{popular.time}} min read</i>
+                                        <i style="    font-family: NunitoSans-Regular;
+                                        font-style: normal;
+                                        color: #A4A4A4;">{{popular.created_date |  date:'dd MMM'}} • </i>
+                                        <i style="    font-family: NunitoSans-Regular;
+                                        font-style: normal;
+                                        color: #A4A4A4;">{{popular.time}} min read</i>
                                     </div>
                                     <!-- <div><a [routerLink]="['/user-profile']">
                                         <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image"
