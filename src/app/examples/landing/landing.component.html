@@ -17,7 +17,7 @@
             <h4><strong>{{article.title}}</strong></h4>
           </div>
           <div class="blog-info">
-            <small>10 Jan • {{article.time}} min read</small>
+            <small>{{article.created_date | date:'dd MMM'}} • {{article.time}} min read</small>
           </div>
           <div class="blog-account">
             <div class="d-flex flex-row" >
@@ -33,32 +33,21 @@
           <img src="{{article.url_file}}" alt="blog image" class="blog-image">
           <p>{{article.description}}</p>
           <!-- <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p> -->
-          <div class="d-flex">
-            <button class="blog-button">Island</button>
-            <button class="blog-button">Travel Tips</button>
-            <button class="blog-button">Travel Planning</button>
+          <div class="d-flex" >
+            <button class="blog-button" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
           </div>
           <div class="blog-suggest">
             <p><strong>We have several articles that are suitable for you</strong></p>
-            <div class="blog-other d-flex flex-column">
-              <div class="card d-flex flex-row justify-content-between">
+            <div class="blog-other d-flex flex-column" *ngFor="let reference_article of articles; let i = index">
+              <div class="card d-flex flex-row justify-content-between" *ngIf="i < 2">
                 <div class="container d-flex flex-column">
-                  <p><strong>How to travel the world and get companies to pay for it.</strong></p>
-                  <small style="color: darkgrey">Sponsorship are like unicorns or leprechauns, talked about</small>
+                  <p><strong>{{reference_article.title}}</strong></p>
+                  <small style="color: darkgrey">{{reference_article.description.substring(0,110)+"..."}}</small>
                   <br>
-                  <small style="color: darkgrey">20 Feb • 5 min read</small>
+                  <small style="color: darkgrey">{{reference_article.created_date | date:'dd MMM'}} • {{reference_article.time}} min read</small>
                 </div>
-                <img src="assets/img/beach1.jpg">
-              </div>
-              <div class="card d-flex flex-row justify-content-between">
-                <div class="container d-flex flex-column">
-                  <p><strong>How to travel the world and get companies to pay for it.</strong></p>
-                  <small style="color: darkgrey">Sponsorship are like unicorns or leprechauns, talked about</small>
-                  <br>
-                  <small style="color: darkgrey">20 Feb • 5 min read</small>
-                </div>
-                <img src="assets/img/beach1.jpg">
-              </div>
+                <img src="{{reference_article.url_file}}">
+              </div>              
             </div>
           </div>
         </div>

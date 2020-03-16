@@ -20,8 +20,8 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
   // GET
-  GetArticles(): Observable<Article> {
-    return this.http.get<Article>(this.baseurl + 'article/')
+  GetArticles(): Observable<Array<Article>> {
+    return this.http.get<Array<Article>>(this.baseurl + 'article/')
     .pipe(
       retry(1),
       catchError(this.errorHandl)
@@ -37,18 +37,36 @@ export class BlogService {
     )
   }
 
+    // GET BY ID
+    GetArticleByCategorys(category_id): Observable<Article> {
+      return this.http.get<any>(this.baseurl + `article/category_id?category_ids=${category_id}`)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      )
+    }
+
   // GET CATEGORY
-  GetCategory(): Observable<any> {
-    return this.http.get<any>(this.baseurl + `category`)
+  GetCategory(page,size): Observable<any> {
+    return this.http.get<any>(this.baseurl + `category?page=${page}` + `&size=${size}`)
     .pipe(
       retry(1),
       catchError(this.errorHandl)
     )
   }
 
-  // GET USER
+  // GET USER BY USERNAME
   GetUser(username): Observable<any> {
     return this.http.get<any>(this.baseurl + `users/username?username=${username}`)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    )
+  }
+
+  // GET CATEGORY BY IDS
+  GetCategoryByIds(ids): Observable<any> {
+    return this.http.get<any>(this.baseurl + `category/id?id=${ids}`)
     .pipe(
       retry(1),
       catchError(this.errorHandl)

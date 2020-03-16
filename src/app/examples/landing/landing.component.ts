@@ -22,21 +22,30 @@ export class LandingComponent implements OnInit {
     
   this.blogService.GetArticle(1).subscribe(response => {
     this.article = response;
-    this.get_user(this.article.created_by);
-    this.get_all_articles();
+    var date =new Date(this.article.created_date);
+    this.article.created_date = date;
+
+    this.get_user(this.article.created_by);  
+    this.getArticleByCategorys(this.article.category_travel);
+    this.getCategoryByIds(this.article);
   })
   }
-
+  getCategoryByIds(element){
+    this.blogService.GetCategoryByIds(element.category_travel).subscribe(response => {
+        element.category_travel = response;
+    })
+}
   get_user(username){
     this.blogService.GetUser(username).subscribe(response => {
       this.user = response;
   })
   }
-  get_all_articles(){
-    this.blogService.GetArticles().subscribe(response => {
+
+  getArticleByCategorys(category_travels){
+    this.blogService.GetArticleByCategorys(category_travels).subscribe(response => {
       this.articles = response;
-    })
+      console.log(this.articles);
+  })
   }
-  
 
 }
