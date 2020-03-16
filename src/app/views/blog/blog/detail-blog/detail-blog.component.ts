@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail-blog.component.scss']
 })
 export class DetailBlogComponent implements OnInit {
-  id: string;
+  id: string = null;
+  recomendedArticleId: string = null;
   ocus: any;
   focus1: any;
   user: User;
@@ -61,6 +62,13 @@ export class DetailBlogComponent implements OnInit {
       this.articles = response;
       console.log(this.articles);
     })
+  }
+
+  gotoDetails(articleId: any) {
+    debugger
+    this.recomendedArticleId = articleId
+    this.router.navigate(['/blog-detail/', articleId]);
+    this.ngOnInit()
   }
 
 }

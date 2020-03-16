@@ -11,6 +11,28 @@ License - nucleoapp.com/license/
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+    font-family: NunitoSans-Bold;
+    src: url(./../fonts/NunitoSans-Bold.ttf);
+  }
+  
+  @font-face {
+    font-family: NunitoSans-SemiBold;
+    src: url(./../fonts/NunitoSans-SemiBold.ttf);
+  }
+  
+  @font-face {
+    font-family: NunitoSans-Regular;
+    src: url(./../fonts/NunitoSans-Regular.ttf);
+  }
+  @font-face {
+    font-family: Rubik-Medium;
+    src: url(./../fonts/Rubik-Medium.ttf);
+  }
+  @font-face {
+    font-family: Rubik-Regular;
+    src: url(./../fonts/Rubik-Regular.ttf);
+  }
 /*------------------------
 	base class definition
 -------------------------*/
