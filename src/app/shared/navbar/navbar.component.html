@@ -18,9 +18,9 @@
         </div>
     </div>
     <div class="input-group col-md-4 p-0 rounded">
-          <input type="text" class="form-control" placeholder="Search Article" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search Article" aria-label="Username" aria-describedby="basic-addon1">
           <div class="input-group-prepend rounded" style="background: #eaeaff;">
-            <span class="input-group-text rounded" id="basic-addon1"><i class="nc-icon nc-zoom-split" style="color: #233e98;"></i></span>
+            <span class="input-group-text rounded" (click)="searchArticle(search)"  id="basic-addon1"><i class="nc-icon nc-zoom-split" style="color: #233e98;"></i></span>
           </div>
   </div>
 </nav>

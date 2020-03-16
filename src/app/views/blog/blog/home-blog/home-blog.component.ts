@@ -46,7 +46,10 @@ export class HomeBlogComponent implements OnInit {
     });
     if(this.id == null)
     this.id = this.activatedRoute.snapshot.paramMap.get('category');
+
+    if(this.search == null)
     this.search = this.activatedRoute.snapshot.paramMap.get('search');
+
     if(this.id != null && this.id != '0'){
       this.catrgories =  [{
         id:0,
@@ -109,12 +112,10 @@ export class HomeBlogComponent implements OnInit {
   }
 
   gotoDetails(articleId: any) {
-    debugger
     this.router.navigate(['/blog-detail/', articleId]);
   }
 
   gotoArticleByCategory(category){
-    debugger
     this.router.navigate(['/blog/', category]);
     this.id = category;
     this.ngOnInit();
