@@ -22,7 +22,6 @@ export class DetailBlogComponent implements OnInit {
   constructor(private router: Router,private blogService: BlogService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    debugger
     if(this.id == null)
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.blogService.GetArticle(this.id).subscribe(response => {
@@ -36,14 +35,12 @@ export class DetailBlogComponent implements OnInit {
     })
   }
   gotoDetails(articleId: any) {
-    debugger
     this.router.navigate(['/blog-detail/', articleId]);
     this.id = articleId;
     this.ngOnInit();
   }
 
   gotoArticleByCategory(category){
-    debugger
     this.router.navigate(['/blog/', category]);
   }
   getCategoryByIds(element) {
@@ -60,7 +57,6 @@ export class DetailBlogComponent implements OnInit {
   getArticleByCategorys(category_travels) {
     this.blogService.GetArticleByCategorys(category_travels).subscribe(response => {
       this.articles = response;
-      console.log(this.articles);
     })
   }
 
