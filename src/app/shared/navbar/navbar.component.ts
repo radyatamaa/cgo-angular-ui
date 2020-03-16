@@ -85,6 +85,6 @@ export class NavbarComponent implements OnInit {
     }
 
     redirectBlog() {
-        window.location.href = 'http://ui-cgo-blog.azurewebsites.net/#/home'
+        window.location.href = 'http://ui-cgo-blog.azurewebsites.net/#/blog'
     }
 }
