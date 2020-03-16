@@ -83,4 +83,8 @@ export class NavbarComponent implements OnInit {
     redirectTransportation() {
         window.location.href = 'https://cgo.co.id/Transportation/transportation';
     }
+
+    redirectBlog() {
+        window.location.href = 'http://ui-cgo-blog.azurewebsites.net/#/home'
+    }
 }
