@@ -72,10 +72,9 @@
                         <div class="" routerLinkActive="active" [routerLink]="['/landing']" *ngFor="let article of result; let i = index">
                             <div class="row" style="margin-top: 20px; margin-bottom: 40px;">
                                 <div class="col-md-8">
-                                    <div class="row mb-2">
+                                    <div class="row mb-2" >
                                         <div class="col-md-9">
-                                            <p>{{article.category_travel}}</p>
-
+                                            <p>{{article.category_travel.category_name}}</p>
                                         </div>
                                         <div class="col-md-3">
                                             <button style="">
@@ -97,7 +96,7 @@
                                     width: 100%;
                                     bottom: 0;">
                                         <div class="row col-md-9" style="color: #9F9F9F;">
-                                            <div class="col-md-3"><p>10 Jan</p></div>
+                                            <div class="col-md-3"><p>{{article.created_date | date:'dd MMM' }}</p></div>
                                             <div class="col-md-1">•</div>
                                             <div class="col-md-5"><p>{{article.time}} min read</p></div>
                                         </div>
@@ -133,14 +132,14 @@
                                 <div class="col-md-1" style="margin-right: 10px;">
                                     <h3 style="    margin-top: 0;">0{{i+1}}</h3>
                                 </div>
-                                <div class="col-md-10">
-                                    <div><i>{{popular.category_travel}}</i></div>
+                                <div class="col-md-10" >
+                                    <div><i>{{popular.category_travel.category_name}}</i></div>
                                     <div class="mt-2">
                                         <p style="font-size: 18px;
                                         color: black;"><b>{{popular.title}}</b></p>
                                     </div>
                                     <div>
-                                        <i>10 Jan • </i>
+                                        <i>{{popular.created_date |  date:'dd MMM'}} • </i>
                                         <i>{{popular.time}} min read</i>
                                     </div>
                                     <!-- <div><a [routerLink]="['/user-profile']">

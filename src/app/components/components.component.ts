@@ -20,10 +20,10 @@ export class ComponentsComponent implements OnInit {
     focus1;
     focus2;
     btnClass: String;
-    catrgories: String[] = ['Home', 'Snorkeling', 'Island', 'Travel Tips', 'Travel Planning', '10 Recomended island'];
+    catrgories: String[] = ['Home'];
     date: {year: number, month: number};
     model: NgbDateStruct;
-    result: Article;
+    result: Array<Article>;
    
 
     constructor( private renderer : Renderer, private blogService: BlogService) {}
@@ -39,7 +39,16 @@ export class ComponentsComponent implements OnInit {
     ngOnInit() {
         this.blogService.GetArticles().subscribe(response => {
             this.result = response;
+            this.result.forEach(element => {
+                var date =new Date(element.created_date);
+                element.created_date = date;
+                this.getCategoryByIds(element);
+            });
+            
         })
+
+        this.getCategoryMasterData();
+        
         let input_group_focus = document.getElementsByClassName('form-control');
         let input_group = document.getElementsByClassName('input-group');
         for (let i = 0; i < input_group.length; i++) {
@@ -50,6 +59,21 @@ export class ComponentsComponent implements OnInit {
                 input_group[i].classList.remove('input-group-focus');
             });
         }
+    }
+
+    getCategoryByIds(element){
+        this.blogService.GetCategoryByIds(element.category_travel).subscribe(response => {            
+            element.category_travel = response[0];
+        })
+    }
+
+    getCategoryMasterData(){
+        this.blogService.GetCategory(0,4).subscribe(response => {            
+            response.forEach(element => {
+                this.catrgories.push(element.category_name);
+            });
+            // this.catrgories.push("")
+        })
     }
 
 }
