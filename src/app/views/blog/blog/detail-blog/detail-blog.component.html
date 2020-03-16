@@ -34,11 +34,11 @@
         <p>{{article.description}}</p>
         <!-- <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p> -->
         <div class="d-flex" >
-          <button class="blog-button" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
+          <button class="blog-button" (click)="gotoArticleByCategory(category_travels.id)" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
         </div>
         <div class="blog-suggest">
           <p><strong>We have several articles that are suitable for you</strong></p>
-          <div class="blog-other d-flex flex-column" *ngFor="let reference_article of articles; let i = index">
+          <div class="blog-other d-flex flex-column" routerLinkActive="active"  *ngFor="let reference_article of articles; let i = index">
             <div class="card d-flex flex-row justify-content-between" (click)="gotoDetails(reference_article.id)" *ngIf="i < 2">
               <div class="container d-flex flex-column">
                 <p><strong>{{reference_article.title}}</strong></p>
