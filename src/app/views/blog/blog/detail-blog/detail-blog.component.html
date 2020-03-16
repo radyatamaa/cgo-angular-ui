@@ -31,7 +31,8 @@
           </div>
         </div>
         <img src="{{article.url_file}}" alt="blog image" class="blog-image">
-        <p>{{article.description}}</p>
+        <div [innerHTML]="article.description"></div>
+        <!-- <span>{{article.description}}</span> -->
         <!-- <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p> -->
         <div class="d-flex" >
           <button class="blog-button" (click)="gotoArticleByCategory(category_travels.id)" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
