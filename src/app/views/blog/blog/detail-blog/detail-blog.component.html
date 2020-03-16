@@ -1,0 +1,94 @@
+<div class="blog">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="blog-profile" >
+        <img src="{{user.profile_url}}" class="avatar">
+        <p><strong>{{user.user_login}}</strong></p>
+        <small class="article-type">{{user.desc_user}}</small>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <div class="d-flex flex-row">
+        <i class="fas fa-arrow-left icon-back"></i>
+        <p>Travel Tips</p>
+      </div>
+      <div class="blog-content">
+        <div class="blog-title">
+          <h4><strong>{{article.title}}</strong></h4>
+        </div>
+        <div class="blog-info">
+          <small>{{article.created_date | date:'dd MMM'}} • {{article.time}} min read</small>
+        </div>
+        <div class="blog-account">
+          <div class="d-flex flex-row" >
+            <img src="{{user.profile_url}}" class="avatar-more">
+            <p><strong>{{user.user_login}}</strong></p>
+          </div>
+          <div>
+            <i class="fab fa-twitter icon-media"></i>
+            <i class="fab fa-facebook-square icon-media"></i>
+            <i class="fas fa-share-alt icon-media"></i>
+          </div>
+        </div>
+        <img src="{{article.url_file}}" alt="blog image" class="blog-image">
+        <p>{{article.description}}</p>
+        <!-- <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p> -->
+        <div class="d-flex" >
+          <button class="blog-button" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
+        </div>
+        <div class="blog-suggest">
+          <p><strong>We have several articles that are suitable for you</strong></p>
+          <div class="blog-other d-flex flex-column" *ngFor="let reference_article of articles; let i = index">
+            <div class="card d-flex flex-row justify-content-between" *ngIf="i < 2">
+              <div class="container d-flex flex-column">
+                <p><strong>{{reference_article.title}}</strong></p>
+                <small style="color: darkgrey">{{reference_article.description.substring(0,110)+"..."}}</small>
+                <br>
+                <small style="color: darkgrey">{{reference_article.created_date | date:'dd MMM'}} • {{reference_article.time}} min read</small>
+              </div>
+              <img src="{{reference_article.url_file}}">
+            </div>              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row d-flex flex-column">
+    <p><strong>More Article</strong></p>
+    <div class="blog-more row">
+      <div class="blog-more-item col-lg-4">
+        <img src="assets/img/swimming pool.jpeg" class="blog-more-img">
+        <h5><strong>How to travel the world and get companies to pay for it.</strong></h5>
+        <div class="d-flex flex-row" style="margin-top: 30px;">
+          <img src="assets/img/avatar.png" class="avatar-more">
+          <div class="d-flex flex-column">
+            <p style="margin:0"><strong>John Titor</strong></p>
+            <p style="color: darkgrey; margin: 0;">10 Jan • 5 min read</p>
+          </div>
+        </div>
+      </div>
+      <div class="blog-more-item col-lg-4">
+        <img src="assets/img/swimming pool.jpeg" class="blog-more-img">
+        <h5><strong>How to travel the world and get companies to pay for it.</strong></h5>
+        <div class="d-flex flex-row" style="margin-top: 30px;">
+          <img src="assets/img/avatar.png" class="avatar-more">
+          <div class="d-flex flex-column">
+            <p style="margin:0"><strong>John Titor</strong></p>
+            <p style="color: darkgrey; margin: 0;">10 Jan • 5 min read</p>
+          </div>
+        </div>
+      </div>
+      <div class="blog-more-item col-lg-4">
+        <img src="assets/img/swimming pool.jpeg" class="blog-more-img">
+        <h5><strong>How to travel the world and get companies to pay for it.</strong></h5>
+        <div class="d-flex flex-row" style="margin-top: 30px;">
+          <img src="assets/img/avatar.png" class="avatar-more">
+          <div class="d-flex flex-column">
+            <p style="margin:0"><strong>John Titor</strong></p>
+            <p style="color: darkgrey; margin: 0;">10 Jan • 5 min read</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

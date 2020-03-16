@@ -1,11 +1,12 @@
 <nav class="shadow-sm navbar navbar-expand-lg fixed-top">
     <div class="container" style="width: 510px;">
         <div class="navbar-translate">
+
             <a href><img src="assets/img/cgo-mini.png" style="width: 90px; height: 60px;" alt="cgo-mini"></a>
-            <a class="navbar-brand" href="https://www.creative-tim.com" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Sailing</a>
-            <a class="navbar-brand" href="https://www.creative-tim.com" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Tour</a>
-            <a class="navbar-brand" href="https://www.creative-tim.com" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Transportation</a>
-            <a class="navbar-brand" href="https://www.creative-tim.com" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Blog</a>
+            <a class="navbar-brand" (click)="redirectSailing()" href="https://cgo.co.id/sailing/index" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Sailing</a>
+            <a class="navbar-brand" (click)="redirectTour()" href="https://cgo.co.id/Tour/tour" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Tour</a>
+            <a class="navbar-brand" (click)="redirectTransportation()" href="https://cgo.co.id/Transportation/transportation" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Transportation</a>
+            <a class="navbar-brand" (click)="redirectBlog()" href="http://ui-cgo-blog.azurewebsites.net/#/home" style="text-transform: none !important; font-family: NunitoSans-SemiBold; font-size: 16px;">Blog</a>
 
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
                 data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
