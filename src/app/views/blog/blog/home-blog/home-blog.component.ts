@@ -4,6 +4,8 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { BlogService } from 'app/services/blog-services/blog.service';
 import { Article, Category } from 'app/model/blog.model';
 import { ActivatedRoute } from '@angular/router';
+declare var $: any;
+
 
 @Component({
   selector: 'app-home-blog',
@@ -30,6 +32,18 @@ export class HomeBlogComponent implements OnInit {
   constructor(private router: Router, private blogService: BlogService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    debugger
+    $('#slider').slick({
+      centerMode: true,
+      centerPadding: '30px',
+      slidesToShow: 1,
+      infinite: true,
+      dots: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      fadeSpeed: 1000
+    });
     if(this.id == null)
     this.id = this.activatedRoute.snapshot.paramMap.get('category');
 

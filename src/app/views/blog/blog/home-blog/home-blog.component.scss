@@ -2,3 +2,16 @@
     background-color: #143ABE;
     color: white;
 }
+.slick-slide > div {
+    transform: scale(.5);
+    transition: transform .3s cubic-bezier(.4,0,.2,1);
+  }
+  .slick-center > div {
+    transform: scale(1);
+  }
+  .slider__item > img {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+  }
+
