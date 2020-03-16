@@ -28,7 +28,6 @@ export class HomeBlogComponent implements OnInit {
   constructor(private router: Router, private blogService: BlogService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    debugger
     if(this.id == null)
     this.id = this.activatedRoute.snapshot.paramMap.get('category');
 
@@ -80,12 +79,10 @@ export class HomeBlogComponent implements OnInit {
   }
 
   gotoDetails(articleId: any) {
-    debugger
     this.router.navigate(['/blog-detail/', articleId]);
   }
 
   gotoArticleByCategory(category){
-    debugger
     this.router.navigate(['/blog/', category]);
     this.id = category;
     this.ngOnInit();
