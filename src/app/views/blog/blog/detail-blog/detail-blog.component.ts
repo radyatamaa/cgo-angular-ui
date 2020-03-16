@@ -64,11 +64,4 @@ export class DetailBlogComponent implements OnInit {
     })
   }
 
-  gotoDetails(articleId: any) {
-    debugger
-    this.recomendedArticleId = articleId
-    this.router.navigate(['/blog-detail/', articleId]);
-    this.ngOnInit()
-  }
-
 }
