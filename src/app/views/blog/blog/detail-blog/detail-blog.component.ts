@@ -40,6 +40,11 @@ export class DetailBlogComponent implements OnInit {
     this.id = articleId;
     this.ngOnInit();
   }
+
+  gotoArticleByCategory(category){
+    debugger
+    this.router.navigate(['/blog/', category]);
+  }
   getCategoryByIds(element) {
     this.blogService.GetCategoryByIds(element.category_travel).subscribe(response => {
       element.category_travel = response;
