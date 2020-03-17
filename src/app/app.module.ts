@@ -19,8 +19,7 @@ import { BlogModule } from './views/blog/blog/blog.module';
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent,
-
+    FooterComponent
   ],
   imports: [
     BrowserModule,
