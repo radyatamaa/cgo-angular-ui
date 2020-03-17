@@ -139,9 +139,10 @@
   :host ::ng-deep .blog-desc p {
     font-family: NunitoSans-Regular;
     color: black;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 15px;
+    line-height: 2em;
     margin-top: 2rem;
+    margin-bottom: 25px;
     text-align: justify;
   }
   :host ::ng-deep .several-content p {

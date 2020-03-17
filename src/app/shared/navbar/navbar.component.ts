@@ -23,12 +23,12 @@ export class NavbarComponent implements OnInit {
     }
 
     searchArticle(article){
-        var baseUrl = 'http://ui-cgo-blog.azurewebsites.net/#/'
-        var router = baseUrl + 'blog/search/' + article;
+        const baseUri = window.location.origin;
+        const baseUrl = baseUri + '/#/'
+        const router = baseUrl + 'blog/search/' + article;
         window.location.href = router;
         window.location.reload();
         // this.router.navigate(['/blog/search/', article]);
-       
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;

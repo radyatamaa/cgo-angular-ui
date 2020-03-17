@@ -18,6 +18,7 @@ export class DetailBlogComponent implements OnInit {
   article: Article;
   articles: Array<Article>;
   username: string;
+  category: string;
   catrgories: String[] = ['Home', 'Snorkeling', 'Island', 'Travel Tips', 'Travel Planning', '10 Recomended island'];
   constructor(private router: Router,private blogService: BlogService, private activatedRoute: ActivatedRoute) { }
 
@@ -28,6 +29,7 @@ export class DetailBlogComponent implements OnInit {
       this.article = response;
       const date = new Date(this.article.created_date);
       this.article.created_date = date;
+      debugger
 
       this.get_user(this.article.created_by);
       this.getArticleByCategorys(this.article.category_travel);
@@ -46,6 +48,7 @@ export class DetailBlogComponent implements OnInit {
   getCategoryByIds(element) {
     this.blogService.GetCategoryByIds(element.category_travel).subscribe(response => {
       element.category_travel = response;
+      this.category = element.category_travel[0].category_name;
     })
   }
   get_user(username) {

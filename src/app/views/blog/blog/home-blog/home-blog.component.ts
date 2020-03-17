@@ -32,7 +32,6 @@ export class HomeBlogComponent implements OnInit {
   constructor(private router: Router, private blogService: BlogService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    debugger
     $('#slider').slick({
       centerMode: true,
       centerPadding: '30px',
