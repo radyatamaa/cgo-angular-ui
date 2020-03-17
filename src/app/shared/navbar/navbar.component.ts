@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -10,13 +11,24 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element : ElementRef) {
+    search: string = '';
+
+    constructor(public location: Location, private element : ElementRef,private router: Router) {
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+    }
+
+    searchArticle(article){
+        const baseUri = window.location.origin;
+        const baseUrl = baseUri + '/#/'
+        const router = baseUrl + 'blog/search/' + article;
+        window.location.href = router;
+        window.location.reload();
+        // this.router.navigate(['/blog/search/', article]);
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
