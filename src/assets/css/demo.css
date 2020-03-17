@@ -1296,3 +1296,30 @@ pre.prettyprint {
     position: relative;
     z-index: 2;
 }
+
+.slick-initialized.slick-slider.slick-dotted ul.slick-dots {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 1rem 0;
+    list-style-type: none;
+}
+ul.slick-dots li {
+    margin: 0 0.25rem;
+}
+ul.slick-dots button {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    border: none;
+    border-radius: 100%;
+    background-color: #C4C4C4;
+    text-indent: -9999px;
+}
+ul.slick-dots li.slick-active button {
+    background-color: #143ABE;
+    padding: 0 15px;
+    border-radius: 1rem;
+}
+

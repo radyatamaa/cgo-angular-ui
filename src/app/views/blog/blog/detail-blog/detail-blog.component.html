@@ -1,28 +1,42 @@
-<div class="blog">
+<div class="container" style="    margin-top: 8rem;">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-2 align-self-center">
       <div class="blog-profile" >
         <img src="{{user.profile_url}}" class="avatar">
-        <p><strong>{{user.user_login}}</strong></p>
+        <p style="margin-top: 1rem;"><strong style="font-family: NunitoSans-SemiBold;
+          text-transform: capitalize;
+          color: #3F3F3F;">{{user.user_login}}</strong></p>
         <small class="article-type">{{user.desc_user}}</small>
+        <button style="border: none;
+        cursor: pointer;
+        background: transparent;
+        padding-left: 0;
+        margin-top: 2rem;">
+            <i class="fa fa-ellipsis-h"></i>
+        </button>
       </div>
     </div>
     <div class="col-lg-10">
-      <div class="d-flex flex-row">
+      <!-- <div class="d-flex flex-row">
         <i class="fas fa-arrow-left icon-back"></i>
-        <p>Travel Tips</p>
-      </div>
+      </div> -->
       <div class="blog-content">
+        <p style="font-family: NunitoSans-Bold;
+        color: #707070;
+        font-size: 14px;">Travel Tips</p>
         <div class="blog-title">
-          <h4><strong>{{article.title}}</strong></h4>
+          <h4 class="mt-3 mb-2"><strong>{{article.title}}</strong></h4>
         </div>
         <div class="blog-info">
-          <small>{{article.created_date | date:'dd MMM'}} • {{article.time}} min read</small>
+          <small style="font-family: NunitoSans-Regular;">{{article.created_date | date:'dd MMM'}} • {{article.time}} min read</small>
         </div>
         <div class="blog-account">
           <div class="d-flex flex-row" >
             <img src="{{user.profile_url}}" class="avatar-more">
-            <p><strong>{{user.user_login}}</strong></p>
+            <p class="align-self-center"><strong style="font-family: NunitoSans-Regular;
+              text-transform: capitalize;
+              color: #3F3F3F;
+              font-size: 16px;">{{user.user_login}}</strong></p>
           </div>
           <div>
             <i class="fab fa-twitter icon-media"></i>
@@ -31,18 +45,20 @@
           </div>
         </div>
         <img src="{{article.url_file}}" alt="blog image" class="blog-image">
-        <p>{{article.description}}</p>
+        <div class="blog-desc" innerHTML="{{article.description}}"></div>
         <!-- <p><strong>But you've got a real talent for coming upp with explanations for this behavior.</strong></p> -->
-        <div class="d-flex" >
-          <button class="blog-button" (click)="gotoArticleByCategory(category_travels.id)" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
+        <div class="d-flex mt-4" >
+          <button class="blog-button ml-0" (click)="gotoArticleByCategory(category_travels.id)" *ngFor="let category_travels of article.category_travel; let i = index">{{category_travels.category_name}}</button>
         </div>
         <div class="blog-suggest">
-          <p><strong>We have several articles that are suitable for you</strong></p>
+          <p style="margin-bottom: 2.5rem;"><strong style="font-family: NunitoSans-Bold;
+            font-size: 20px; color: black;">We have several articles that are suitable for you</strong></p>
           <div class="blog-other d-flex flex-column" routerLinkActive="active"  *ngFor="let reference_article of articles; let i = index">
             <div class="card d-flex flex-row justify-content-between" (click)="gotoDetails(reference_article.id)" *ngIf="i < 2">
-              <div class="container d-flex flex-column">
-                <p><strong>{{reference_article.title}}</strong></p>
-                <small style="color: darkgrey">{{reference_article.description.substring(0,110)+"..."}}</small>
+              <div class="container d-flex flex-column p-4">
+                <p><strong style="font-family: Rubik-Medium;
+                  color: #202020; font-size: 16px;">{{reference_article.title}}</strong></p>
+                <small class="several-content" innerHTML="{{reference_article.description.substring(0,80)+'...'}}"></small>
                 <br>
                 <small style="color: darkgrey">{{reference_article.created_date | date:'dd MMM'}} • {{reference_article.time}} min read</small>
               </div>
